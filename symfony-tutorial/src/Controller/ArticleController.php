@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Item;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +21,6 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = $this->getDoctrine ()->getRepository (Article::class)->findAll ();
-
         return $this->render ('article/index.html.twig',[
             'articles' => $articles
         ]);
@@ -31,9 +31,10 @@ class ArticleController extends Controller
      */
     public function show($id) {
         $article =$this->getDoctrine ()->getRepository (Article::class)->find ($id);
-
+        $items = $this->getDoctrine ()->getRepository (Item::class)->findAllByArticle ($id);
         return $this->render ('article/show.html.twig',[
-            'article' =>$article
+            'article' => $article,
+            'items' => $items
         ]);
     }
 
