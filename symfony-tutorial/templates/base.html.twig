@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body class="bg-gray">
+    {% include 'includes/navbar.html.twig' %}
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    <script src="/assets/js/jQuery.js"></script>
+    <script src="/assets/js/popper.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
