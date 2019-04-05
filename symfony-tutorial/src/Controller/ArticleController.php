@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = $this->getDoctrine ()->getRepository (Article::class)->findAll ();
+        $articles = $this->getDoctrine ()->getRepository (Article::class)->findAll();
         return $this->render ('article/index.html.twig',[
             'articles' => $articles
         ]);
