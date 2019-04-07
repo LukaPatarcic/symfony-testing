@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-warning mb-3">
+<nav class="navbar navbar-expand-sm navbar-dark bg-warning">
     <div class="container">
-        <a href="/" class="navbar-brand">Symfony article</a>
+        <a href="/" class="navbar-brand">Symfony categories</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -9,14 +9,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/article">Article</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="category" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="category">
+                        <a class="dropdown-item" href="/category">List Categories</a>
+                        <a class="dropdown-item" href="/category/add">Add Category</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="item">
+                        <a class="dropdown-item" href="{{ path('item') }}">List Items</a>
+                        <a class="dropdown-item" href="{{ path('item_add') }}">Add Item</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/article/new">New Article</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/item/new">New Item</a>
+                    <a class="nav-link" href="{{ path('main') }}">Login</a>
                 </li>
             </ul>
         </div>

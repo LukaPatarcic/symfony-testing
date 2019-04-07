@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Item;
+use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -47,17 +49,5 @@ class ItemRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function findAllByArticle($id): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
 
-        $sql = '
-        SELECT * FROM item 
-        WHERE article_id = ?
-        ';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$id]);
-        // returns an array of arrays (i.e. a raw data set)
-        return $stmt->fetchAll();
-    }
 }

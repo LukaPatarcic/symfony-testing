@@ -1,37 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    Item
-{% endblock %}
+{% block title %}Hello ItemController!{% endblock %}
 
 {% block body %}
-    {% if articles %}
-        <table class="table table-stripped table-dark" id="articles">
-            <thead>
-            <tr>
-                <th>Article Title</th>
-                <th>Article Description</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for item in items%}
-                <tr>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>
-                        <a href="/article/edit/{{ item.id }}" class="btn btn-primary">Edit</a>
-                        <a href="/article/show/{{ item.id }}" class="btn btn-success">Show</a>
-                        <a href="#" data-id="{{ item.id }}" class="btn btn-danger delete-article">Delete</a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-    {% else %}
-        <p>No items</p>
-    {% endif %}
-
+    {% for item in items %}
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="{{ asset('/uploads/' ~ item.image) }}">
+            </div>
+            <div class="col-sm-8 mt-5 pt-5">
+                <h1>{{ item.title }}</h1>
+                <h3 class="text-muted">{{ item.description }}</h3>
+                <ul>
+                    <li class="font-weight-bold">Price: <span class="text-success">{{ item.price }}$</span></li>
+                    <li class="font-weight-bold">Amount left: {{ item.amount }}</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
 {% endblock %}
-
