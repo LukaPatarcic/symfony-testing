@@ -3,13 +3,63 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_errors(registrationForm) }}
 
-        <button type="submit" class="btn btn-primary">Register</button>
-    {{ form_end(registrationForm) }}
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-6 offset-3">
+                <div class="card p-2">
+                    <div class="card-title mt-3">
+                        <h2 class="text-center text-warning">Register</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ form_start(registrationForm) }}
+
+                                <div class="md-form">
+                                    {{ form_label(registrationForm.username) }}
+                                    {{ form_widget(registrationForm.username) }}
+                                    <small class="text-danger">
+                                        {{ form_errors(registrationForm.username) }}
+                                        {{ form_help(registrationForm.username) }}
+                                    </small>
+                                </div>
+
+                                <div class="md-form">
+                                    {{ form_widget(registrationForm.email) }}
+                                    {{ form_label(registrationForm.email) }}
+                                    <small class="text-danger">
+                                        {{ form_errors(registrationForm.email) }}
+                                        {{ form_help(registrationForm.email) }}
+                                    </small>
+                                </div>
+
+                                <div class="md-form">
+                                    {{ form_widget(registrationForm.password) }}
+                                    {{ form_label(registrationForm.password) }}
+                                    <small class="text-danger">
+                                        {{ form_errors(registrationForm.password) }}
+                                        {{ form_help(registrationForm.password) }}
+                                    </small>
+                                </div>
+
+                                <div class="custom-control custom-checkbox my-3">
+                                    {{ form_widget(registrationForm.termsAccepted) }}
+                                    {{ form_label(registrationForm.termsAccepted) }}
+                                    <small class="text-danger">
+                                        {{ form_errors(registrationForm.termsAccepted) }}
+                                        {{ form_help(registrationForm.termsAccepted) }}
+                                    </small>
+                                </div>
+
+                                {{ form_end(registrationForm) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
