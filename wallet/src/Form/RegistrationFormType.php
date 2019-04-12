@@ -53,6 +53,12 @@ class RegistrationFormType extends AbstractType
             ->add('termsAccepted', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => new IsTrue(),
+                'attr' => [
+                  'class' => 'custom-control-input',
+                ],
+                'label_attr' => [
+                    'class' => 'custom-control-label',
+                ],
             ])
             ->add ('register',SubmitType::class,[
                 'attr' => [

@@ -2,139 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2558ba76-84ec-49a8-98ef-20e94754cfd5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/User.php.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../symfony-tutorial/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../symfony-tutorial/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wallet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wallet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/autofill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/base.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/baseFormControl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/baseInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/baseLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/baseSelection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/bootstrapMaterialDesign.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/checkbox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/checkboxInline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/collapseInline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/drawer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/dropdown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/file.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/radio.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/radioInline.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/ripples.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/select.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/switch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/text.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/textarea.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/js/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_alerts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_cards.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_checkboxes.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_core-bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_custom.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_drawer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_extensions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_radios.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_ripples.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_switches.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_themes.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/bootstrap-material-design.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/extensions/_selectize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/extensions/_snackbarjs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_animations.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_drawer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_navs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/mixins/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_colors-map.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_colors.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_drawer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_menu.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/_snackbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_body.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_code.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_components.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_modals.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_spacing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_state.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-material-design/scss/variables/bootstrap/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/bootstrap-material-design.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/mdb.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/google.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/google.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/mdb.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/LoginType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,70 +17,28 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/user_dashboard/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/user_dashboard/statistics.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="25" column="97" selection-start-line="25" selection-start-column="97" selection-end-line="25" selection-end-column="97" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="1127">
+              <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+            <state relative-caret-position="161">
+              <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/includes/sidebar.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="132" selection-start-line="15" selection-start-column="132" selection-end-line="15" selection-end-column="132" />
-              <folding>
-                <element signature="e#262#276#0#Twig" expanded="true" />
-                <element signature="e#637#658#0#Twig" expanded="true" />
-                <element signature="e#820#845#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UserDashboardController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
-              <folding>
-                <element signature="e#34#61#0#PHP" expanded="true" />
-                <element signature="e#2151#2188#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
+            <state relative-caret-position="560">
+              <caret line="35" column="74" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -247,13 +74,10 @@
         <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
-        <option value="$PROJECT_DIR$/src/Form/RegistrationFormType.php" />
-        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
         <option value="$PROJECT_DIR$/tests/User.php.old" />
         <option value="$PROJECT_DIR$/src/Controller/RegistrationController.php" />
@@ -271,6 +95,9 @@
         <option value="$PROJECT_DIR$/templates/user_dashboard/tables.html.twig" />
         <option value="$PROJECT_DIR$/templates/user_dashboard/statistics.html.twig" />
         <option value="$PROJECT_DIR$/templates/includes/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/templates/registration/register.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/RegistrationFormType.php" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
       </list>
     </option>
   </component>
@@ -544,13 +371,13 @@
       <option name="presentableId" value="Default" />
       <updated>1555004914970</updated>
       <workItem from="1555004918983" duration="9115000" />
-      <workItem from="1555068544388" duration="34504000" />
+      <workItem from="1555068544388" duration="35375000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43619000" />
+    <option name="totallyTimeSpent" value="44490000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -690,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="206" selection-start-line="8" selection-start-column="206" selection-end-line="8" selection-end-column="206" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -748,13 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
           <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -846,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/TransactionFormType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="746">
@@ -894,39 +700,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/footer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="84" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/sidebar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="132" selection-start-line="15" selection-start-column="132" selection-end-line="15" selection-end-column="132" />
-          <folding>
-            <element signature="e#262#276#0#Twig" expanded="true" />
-            <element signature="e#637#658#0#Twig" expanded="true" />
-            <element signature="e#820#845#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/user_dashboard/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,13 +717,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserDashboardController.php">
+    <entry file="file://$PROJECT_DIR$/templates/user_dashboard/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+        <state relative-caret-position="583">
+          <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
           <folding>
-            <element signature="e#34#61#0#PHP" expanded="true" />
-            <element signature="e#2151#2188#0#PHP" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,8 +739,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/navbar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="53" column="59" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+        <state relative-caret-position="759">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/sidebar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="132" selection-start-line="15" selection-start-column="132" selection-end-line="15" selection-end-column="132" />
+          <folding>
+            <element signature="e#262#276#0#Twig" expanded="true" />
+            <element signature="e#637#658#0#Twig" expanded="true" />
+            <element signature="e#820#845#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserDashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+          <folding>
+            <element signature="e#34#61#0#PHP" expanded="true" />
+            <element signature="e#2151#2188#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" column="74" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RegistrationFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
         </state>
       </provider>
     </entry>
