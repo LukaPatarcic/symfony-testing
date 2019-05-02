@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,9 +31,11 @@ class RegistrationFormType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('password', PasswordType::class, [
+            ->add('password', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields do not match',
                 'mapped' => true,
                 'constraints' => [
                     new NotBlank([
@@ -46,7 +49,19 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'md-form'
+                ],
+                'first_options' => [
+                    'attr' => [
+                        'class' => 'form-control',
+                    ],
+                    'label' => 'Password',
+                ],
+                'second_options' => [
+                    'attr' => [
+                        'class' => 'form-control',
+                    ],
+                    'label' => 'Password Repeat'
                 ]
 
             ])
@@ -57,7 +72,7 @@ class RegistrationFormType extends AbstractType
                   'class' => 'custom-control-input',
                 ],
                 'label_attr' => [
-                    'class' => 'custom-control-label',
+                    'class' => 'custom-control-label text-muted',
                 ],
             ])
             ->add ('register',SubmitType::class,[

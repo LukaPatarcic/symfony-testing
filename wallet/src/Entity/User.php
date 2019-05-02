@@ -3,16 +3,20 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Repository\UserRepository;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="uq_username", columns={"username"}), @ORM\UniqueConstraint(name="uq_email", columns={"email"})})
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email",message="There is already a user with that email")
+ * @UniqueEntity("username",message="There is already a user with that username")
  */
+
 class User implements UserInterface
 {
     /**
@@ -28,13 +32,15 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="This field is required")
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9]{2,50}$/",message="Only letters and numbers")
      */
     private $username;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     *
      */
     private $password;
 
@@ -42,6 +48,10 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 

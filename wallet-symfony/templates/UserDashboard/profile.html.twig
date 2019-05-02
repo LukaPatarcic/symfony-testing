@@ -1,0 +1,105 @@
+{% extends '_global/index.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block main %}
+    {% include 'includes/navbar.html.twig' %}
+    {% include 'includes/sidebar.html.twig' %}
+    <!--Main Navigation-->
+    <!--Main layout-->
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+                    <h4 class="mb-2 mb-sm-0 pt-1">
+                        <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Profile</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
+                    </h4>
+
+                    <form class="d-flex justify-content-center">
+                        <!-- Default input -->
+                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Heading -->
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <h1 class="h1-responsive text-center text-primary">Hello {{ user.username }}</h1>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-5">
+                    <div class="card">
+                        <div class="card-header text-center text-primary">
+                            Amount in wallet
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary p-2 m-0"><i class="fa fa-money-bill fa-2x"></i></button>
+                                </div>
+                                <div class="col-sm-10">
+                                    <input class="form-control disabled form-control-lg" value="{{ user.balance }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="materialUnchecked">
+                                    <label class="form-check-label text-primary" for="materialUnchecked">Subscribe to newsletter</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 mt-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-center text-primary">User Settings</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-inline">
+                                <label>Monthly Earnings</label>
+                                <input type="number" class="form-control ml-2" value="20000">
+                            </div>
+                            <hr>
+                            <div class="switch">
+                                <label>
+                                    Dinar
+                                    <input type="checkbox">
+                                    <span class="lever"></span> Euro
+                                </label>
+                            </div>
+                            <hr>
+                            <button class="btn btn-danger">Delete Account</button>
+                            <div>
+                                <h3>Change chart colors</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
+
+    {% include 'includes/footer.html.twig' %}
+
+{% endblock %}
+

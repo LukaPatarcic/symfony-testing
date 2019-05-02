@@ -1,0 +1,110 @@
+{% extends '_global/index.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block main %}
+    {% include 'includes/navbar.html.twig' %}
+    {% include 'includes/sidebar.html.twig' %}
+    <!--Main Navigation-->
+    <!--Main layout-->
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+                    <h4 class="mb-2 mb-sm-0 pt-1">
+                        <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Profile</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
+                    </h4>
+
+                    <form class="d-flex justify-content-center">
+                        <!-- Default input -->
+                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Heading -->
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="card col-sm-12 mb-5">
+                    <div class="card-header text-center text-primary">
+                        <h3>Today's Stats</h3>
+                    </div>
+                </div>
+                <div class="card col-md-5 sm-12">
+                    <div class="card-header text-center text-danger">
+                        <h3>Outcome stats</h3>
+                    </div>
+                    <div class="card-body">
+                        <h1 id="outcomeMessage" class="text-center text-danger"></h1>
+                        <canvas id="outcome"></canvas>
+                    </div>
+                </div>
+                <div class="card col-md-5 offset-md-2 sm-12">
+                    <div class="card-header text-center text-success">
+                        <h3>Income stats</h3>
+                    </div>
+                    <div class="card-body">
+                        <h1 id="incomeMessage" class="text-center text-danger"></h1>
+                        <canvas id="income"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
+
+    {% include 'includes/footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function getData(type) {
+            $.ajax({
+                url: '/api/transaction/outcome',
+                type: 'POST',
+                data: 'type='+type,
+                success: function (response) {
+
+                    if(response.errorMessage) {
+                        $('#'+type+'Message').text(response.errorMessage)
+                    }
+                    console.log(response);
+                    pieChart(response.names,response.amounts,type)
+                }
+            })
+        }
+        function pieChart(names,amounts,id) {
+
+            var ctxP = document.getElementById(id).getContext('2d');
+            var myPieChart = new Chart(ctxP, {
+                type: 'pie',
+                data: {
+                    labels: names,
+                    datasets: [{
+                        data: amounts,
+                        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+        document.addEventListener('load', getData('income'));
+        document.addEventListener('load', getData('outcome'));
+
+    </script>
+{% endblock %}

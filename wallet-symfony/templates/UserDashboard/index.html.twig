@@ -1,0 +1,140 @@
+{% extends '_global/index.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block main %}
+    {% include 'includes/navbar.html.twig' %}
+    {% include 'includes/sidebar.html.twig' %}
+    <!--Main Navigation-->
+    <!--Main layout-->
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+                    <h4 class="mb-2 mb-sm-0 pt-1">
+                        <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Home Page</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
+                    </h4>
+
+                    <form class="d-flex justify-content-center">
+                        <!-- Default input -->
+                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Heading -->
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class=" col-sm-4">
+                            <div class="card p-2">
+                                <div class="card-title mt-3">
+                                    <h2 class="text-center text-warning">Transactions</h2>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form method="POST" action="/api/user">
+                                            <div class="md-form">
+                                                <label for="balance"></label>
+                                                <input class="form-control" type="number" name="balance" id="balance" placeholder="Enter a value" required>
+                                                <small class="text-danger">
+                                                    {{ error }}
+                                                </small>
+                                            </div>
+                                            <div class="md-form">
+                                                <select name="transactionType" id="transactionType" class="browser-default custom-select" required>
+                                                    <option value="" hidden>Select a type</option>
+                                                    <option value="income">Income</option>
+                                                    <option value="outcome">Outcome</option>
+                                                </select>
+                                            </div>
+                                            <div class="md-form">
+                                                <select name="transactionName" id="transactionName" class="browser-default custom-select" required>
+                                                    <option value="" hidden>Select a name</option>
+                                                </select>
+                                            </div>
+                                                <button class="btn btn-primary btn-block">Send</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 offset-2">
+                            <h1>TOTAL AMOUNT IN WALLET: <span id="amount"></span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
+
+    {% include 'includes/footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+        $('form').on('submit',function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/api/user/add',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    getBalance();
+                    $('#transactionName').val('');
+                    $('#transactionType').val('');
+                    $('#balance').val('');
+                }
+            })
+        })
+
+        $('#transactionType').change(function() {
+            $.ajax({
+                url: '/api/transaction/type/'+$('#transactionType').val(),
+                type: 'POST',
+                success: function (response) {
+                    $.each(response, function(keys, values) {
+                        $('#transactionName').empty();
+                        $('#transactionName').append("<option value=\"\" hidden>Select a name</option>")
+                        $.each(values, function(key, value) {
+                            $('#transactionName').append("<option value=\""+value.transaction_type_id+"\">"+value.name+"</option>")
+                        })
+                    })
+                }
+            })
+        })
+
+        function getBalance() {
+
+            $.ajax({
+                url: '/api/user',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    $('#amount').text(response.balance);
+                }
+            })
+
+        }
+
+        document.addEventListener('load', getBalance());
+
+
+    </script>
+{% endblock %}

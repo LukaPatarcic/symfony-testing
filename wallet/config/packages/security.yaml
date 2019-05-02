@@ -2,6 +2,7 @@ security:
     encoders:
         App\Entity\User:
             algorithm: argon2i
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -17,7 +18,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: ~
+            anonymous: true
             form_login:
                 login_path: app_login
                 check_path: app_login
@@ -27,9 +28,10 @@ security:
                     - App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
+            logout_on_user_change: true
             remember_me:
                 secret:   '%kernel.secret%'
-                lifetime: 604800 # 1 week in seconds
+                lifetime: 20 #604800 # 1 week in seconds
                 path:     /
 
             # activate different ways to authenticate
