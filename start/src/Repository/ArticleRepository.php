@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,22 +21,40 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    // /**
-    //  * @return Article[] Returns an array of Article objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Article[]
+    */
+    public function findAllPublishedOrderedByNewest()
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+
+        return $this->addIsPublishedQueryBuilder ()
+            ->leftJoin ('a.tags ','t')
+            ->addSelect ('t')
+            ->orderBy('a.publishedAt', 'DESC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    private function addIsPublishedQueryBuilder(QueryBuilder $qb = null)
+    {
+        return $this->getOrCreateQueryBuilder ($qb)
+            ->andWhere('a.publishedAt IS NOT NULL');
+
+    }
+
+    private function getOrCreateQueryBuilder(QueryBuilder $qb = null)
+    {
+        return $qb ?: $this->createQueryBuilder ('a');
+    }
+
+    public static function createNonDeletedCriteria(): Criteria
+    {
+        return $criteria = Criteria::create ()
+            ->andWhere (Criteria::expr()->eq ('isDeleted',false))
+            ->orderBy (['createdAt' => 'DESC'])
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Article
