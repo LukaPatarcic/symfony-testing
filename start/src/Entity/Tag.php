@@ -13,7 +13,6 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  */
 class Tag
 {
-
     use TimestampableEntity;
 
     /**
@@ -44,7 +43,7 @@ class Tag
         $this->articles = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -99,5 +98,10 @@ class Tag
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

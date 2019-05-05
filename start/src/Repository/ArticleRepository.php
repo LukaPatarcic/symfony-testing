@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -22,37 +21,16 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
     /**
-    * @return Article[]
-    */
+     * @return Article[]
+     */
     public function findAllPublishedOrderedByNewest()
     {
-
-        return $this->addIsPublishedQueryBuilder ()
-            ->leftJoin ('a.tags ','t')
-            ->addSelect ('t')
+        return $this->addIsPublishedQueryBuilder()
+            ->leftJoin('a.tags', 't')
+            ->addSelect('t')
             ->orderBy('a.publishedAt', 'DESC')
             ->getQuery()
             ->getResult()
-        ;
-    }
-
-    private function addIsPublishedQueryBuilder(QueryBuilder $qb = null)
-    {
-        return $this->getOrCreateQueryBuilder ($qb)
-            ->andWhere('a.publishedAt IS NOT NULL');
-
-    }
-
-    private function getOrCreateQueryBuilder(QueryBuilder $qb = null)
-    {
-        return $qb ?: $this->createQueryBuilder ('a');
-    }
-
-    public static function createNonDeletedCriteria(): Criteria
-    {
-        return $criteria = Criteria::create ()
-            ->andWhere (Criteria::expr()->eq ('isDeleted',false))
-            ->orderBy (['createdAt' => 'DESC'])
         ;
     }
 
@@ -67,4 +45,15 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    private function addIsPublishedQueryBuilder(QueryBuilder $qb = null)
+    {
+        return $this->getOrCreateQueryBuilder($qb)
+            ->andWhere('a.publishedAt IS NOT NULL');
+    }
+
+    private function getOrCreateQueryBuilder(QueryBuilder $qb = null)
+    {
+        return $qb ?: $this->createQueryBuilder('a');
+    }
 }

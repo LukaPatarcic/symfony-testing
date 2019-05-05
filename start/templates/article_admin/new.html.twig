@@ -1,0 +1,12 @@
+{% extends 'content_base.html.twig' %}
+
+{% block title %}Article | New{% endblock %}
+
+{% block content_body %}
+    {{ form_start(articleForm) }}
+        {{ form_row(articleForm.title) }}
+        {{ form_row(articleForm.content) }}
+        {{ form_row(articleForm.publishedAt) }}
+        {{ form_row(articleForm.author) }}
+    {{ form_end(articleForm) }}
+{% endblock %}

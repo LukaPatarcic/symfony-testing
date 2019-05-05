@@ -2,20 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  */
 class Article
 {
-
     use TimestampableEntity;
 
     /**
@@ -26,15 +27,16 @@ class Article
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Get creative and think of a title!")
+     */
+    private $title;
+
+    /**
      * @ORM\Column(type="string", length=100, unique=true)
      * @Gedmo\Slug(fields={"title"})
      */
     private $slug;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -46,10 +48,6 @@ class Article
      */
     private $publishedAt;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $author;
 
     /**
      * @ORM\Column(type="integer")
@@ -72,15 +70,46 @@ class Article
      */
     private $tags;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 
     public function getContent(): ?string
@@ -107,40 +136,6 @@ class Article
         return $this;
     }
 
-
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-
-    public function setSlug($slug): void
-    {
-        $this->slug = $slug;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function setTitle($title): void
-    {
-        $this->title = $title;
-    }
-
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
     public function getHeartCount(): ?int
     {
         return $this->heartCount;
@@ -149,6 +144,13 @@ class Article
     public function setHeartCount(int $heartCount): self
     {
         $this->heartCount = $heartCount;
+
+        return $this;
+    }
+
+    public function incrementHeartCount(): self
+    {
+        $this->heartCount = $this->heartCount + 1;
 
         return $this;
     }
@@ -167,14 +169,7 @@ class Article
 
     public function getImagePath()
     {
-        return '/images/'.$this->getImageFilename ();
-    }
-
-    public function incrementHeartCount()
-    {
-        $this->heartCount = $this->heartCount + 1;
-
-        return $this;
+        return 'images/'.$this->getImageFilename();
     }
 
     /**
@@ -190,11 +185,10 @@ class Article
      */
     public function getNonDeletedComments(): Collection
     {
-        $criteria = ArticleRepository::createNonDeletedCriteria ();
+        $criteria = CommentRepository::createNonDeletedCriteria();
 
-        return $this->comments->matching ($criteria);
+        return $this->comments->matching($criteria);
     }
-
 
     public function addComment(Comment $comment): self
     {
@@ -244,4 +238,41 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $author
+     * @return self
+     */
+    public function setAuthor($author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function isPublished(): bool
+    {
+        return $this->publishedAt !== null;
+    }
+
+    /**
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+        if(stripos ($this->getTitle (),'the borg') !== false) {
+            $context->buildViolation ('Um.. The Borg kinda makes us nervous')
+                ->atPath ('title')
+                ->addViolation ();
+        }
+    }
+
 }
