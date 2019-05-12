@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script>
+        window.DATA = {{ data|json_encode|raw }};
+    </script>
+    {{ parent() }}
+{% endblock %}

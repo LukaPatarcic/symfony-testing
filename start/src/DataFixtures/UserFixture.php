@@ -24,7 +24,7 @@ class UserFixture extends BaseFixture
     {
         $this->createMany (10,'main_users', function ($i) use ($manager) {
             $user = new User();
-            $user->setEmail ($this->faker->email);
+            $user->setEmail ('luka'.$i.'@gmail.com');
             $user->setFirstName ($this->faker->firstName);
             $user->agreeTerms();
             if($this->faker->boolean) {
@@ -45,7 +45,7 @@ class UserFixture extends BaseFixture
 
         $this->createMany (3,'admin_users', function ($i) {
             $user = new User();
-            $user->setEmail ($this->faker->email);
+            $user->setEmail ('admin'.$i.'@gmail.com');
             $user->setFirstName ($this->faker->firstName);
             $user->agreeTerms();
             $user->setRoles (['ROLE_ADMIN']);

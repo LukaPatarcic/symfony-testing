@@ -2,20 +2,16 @@
 
 namespace App\Entity;
 
+use App\Validator\UniqueUser;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(
- *     fields={"email"},
- *     message="I think you're already registered")
- *
  */
 class User implements UserInterface
 {
@@ -31,6 +27,7 @@ class User implements UserInterface
      * @Groups("main")
      * @Assert\NotBlank(message="Please enter an email")
      * @Assert\Email(message="Email is not valid")
+     * @UniqueUser()
      *
      */
     private $email;
@@ -63,7 +60,7 @@ class User implements UserInterface
     private $apiTokens;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="author", fetch="EXTRA_LAZY")
      */
     private $articles;
 
