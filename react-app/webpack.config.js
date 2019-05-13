@@ -38,9 +38,6 @@ Encore
 
     // Presets
     .configureBabel((config) => {
-        config.presets.push(
-            ['babel-polyfil']
-        );
         config.plugins.push([
             '@babel/plugin-proposal-class-properties'
         ]);

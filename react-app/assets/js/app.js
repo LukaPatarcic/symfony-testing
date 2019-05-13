@@ -3,50 +3,49 @@ import ReactDOM from 'react-dom';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import 'bootstrap'
 import '../css/app.css'
+// import JSON from '../libs/db';
 
 //Componets
 import Header from './components/header';
+import NewsList from './components/news_list';
 
 export default class App extends Component{
+
     state = {
-        loading: true,
-        form: null
-    };
-    
-     getForm = () => {
-        fetch('http://127.0.0.1:8000/form')
-            .then((response) => {
-                return response.text()
-            }).then((html) => {
-                this.setState({form: html, loading: false})
-            })
-
+        news: JSON.parse(window.DATA),
+        filtered: []
     }
 
-    addClasses = () => {
-         let form = document.querySelector('form');
-         console.log(form);
-         form.style.display = 'none';
-    }
+    getKeywords = (e) => {
+        let keyword = e.target.value;
+        let filtered = this.state.news.filter((item) => {
+            return item.title.indexOf(keyword) > -1
+        });
 
-    message = () => {
-         alert(1);
+        this.setState({
+            filtered
+        });
+
+        console.log(filtered);
     }
 
     render() {
+
+        let allNews = this.state.news;
+        let filteredNews = this.state.filtered;
         return (
         <div>
-            <Header/>
-            <div onClick={this.addClasses}>Add class to form</div>
-            {this.state.loading || !this.state.form ? (
-                <div>
-                    <div onClick={this.getForm}>loading...</div>
+            <Header keywords={this.getKeywords}/>
+            <div className={"container"}>
+                <div className={"row"}>
+                    <div className={"col-sm-12"}>
+                        <NewsList
+                            news={filteredNews.length === 0 ? allNews : filteredNews}>
+                        Hello World!
+                        </NewsList>
+                    </div>
                 </div>
-            ) : (
-                <div>
-                    {ReactHtmlParser(this.state.form)}
-                </div> )
-            }
+            </div>
         </div>
         );
     }
