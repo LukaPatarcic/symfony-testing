@@ -5,11 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
- * @UniqueEntity(fields={"name"}, message="Country already exists")
  */
 class Country
 {
@@ -21,14 +19,9 @@ class Country
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $size;
 
     /**
      * @ORM\Column(type="integer")
@@ -36,12 +29,18 @@ class Country
     private $population;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $size;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $currency;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\City", mappedBy="country")
+     * @ORM\OneToMany(targetEntity="City", mappedBy="country")
+     * @ORM\JoinColumn(name="cities_id", referencedColumnName="id")
      */
     private $cities;
 
@@ -67,18 +66,6 @@ class Country
         return $this;
     }
 
-    public function getSize(): ?int
-    {
-        return $this->size;
-    }
-
-    public function setSize(int $size): self
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
     public function getPopulation(): ?int
     {
         return $this->population;
@@ -87,6 +74,18 @@ class Country
     public function setPopulation(int $population): self
     {
         $this->population = $population;
+
+        return $this;
+    }
+
+    public function getSize(): ?int
+    {
+        return $this->size;
+    }
+
+    public function setSize(int $size): self
+    {
+        $this->size = $size;
 
         return $this;
     }

@@ -23,8 +23,9 @@ class CountryFixture extends BaseFixture
            $country = new Country();
            $country->setName($this->faker->country)
                ->setSize($this->faker->numberBetween(10000,1000000))
-               ->setCurrency($this->faker->word)
+               ->setCurrency($this->faker->currencyCode)
                ->setPopulation($this->faker->numberBetween(100000,100000000));
+
            return $country;
         });
 

@@ -29,6 +29,7 @@ class ArticleController extends AbstractController
     public function homepage(ArticleRepository $repository)
     {
         $articles = $repository->findAllPublishedOrderedByNewest();
+        dd($articles);
 
         return $this->render('article/homepage.html.twig', [
             'articles' => $articles,

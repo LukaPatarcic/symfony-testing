@@ -24,19 +24,18 @@ class City
     /**
      * @ORM\Column(type="integer")
      */
-    private $zipCode;
+    private $population;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $population;
+    private $zipCode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="cities")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities")
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     private $country;
-
 
     public function getId(): ?int
     {
@@ -55,18 +54,6 @@ class City
         return $this;
     }
 
-    public function getZipCode(): ?int
-    {
-        return $this->zipCode;
-    }
-
-    public function setZipCode(int $zipCode): self
-    {
-        $this->zipCode = $zipCode;
-
-        return $this;
-    }
-
     public function getPopulation(): ?int
     {
         return $this->population;
@@ -75,6 +62,18 @@ class City
     public function setPopulation(int $population): self
     {
         $this->population = $population;
+
+        return $this;
+    }
+
+    public function getZipCode(): ?int
+    {
+        return $this->zipCode;
+    }
+
+    public function setZipCode(int $zipCode): self
+    {
+        $this->zipCode = $zipCode;
 
         return $this;
     }

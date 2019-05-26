@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\City;
 use App\Entity\Country;
 use App\Repository\CityRepository;
 use App\Repository\CountryRepository;
@@ -22,6 +23,7 @@ class HomeController extends AbstractController
     public function getCountryAllAction(CountryRepository $repository)
     {
         $countries = $repository->findAll();
+        dd($countries);
         if(!$countries)
             return $this->json(['error' => 'There are no countries in the database'],Response::HTTP_NO_CONTENT);
         return $this->json($countries,Response::HTTP_OK);
@@ -33,6 +35,22 @@ class HomeController extends AbstractController
     public function getCountryByNameAction(string $name, CountryRepository $repository)
     {
         $country = $repository->findOneBy(['name' => $name]);
+        dd($country);
+//        $country = new Country();
+//        $city = new City();
+//        $country->setName('Luka')
+//            ->setPopulation(123123)
+//            ->setSize(123124)
+//            ->setCurrency('RSD');
+//
+//        $city->setName('Luka City')
+//            ->setPopulation(123123)
+//            ->setCountry($country)
+//            ->setZipCode(24000);
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($country);
+//        $em->persist($city);
+//        $em->flush();
         if(!$country)
             return $this->json([],Response::HTTP_NO_CONTENT);
         return $this->json($country,Response::HTTP_OK);
@@ -68,6 +86,7 @@ class HomeController extends AbstractController
     public function getAllCities(CityRepository $repository)
     {
         $cities = $repository->findAll();
+        dd($cities);
         $encoders = [new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
 
