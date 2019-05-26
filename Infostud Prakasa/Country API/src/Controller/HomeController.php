@@ -6,8 +6,10 @@ use App\Entity\City;
 use App\Entity\Country;
 use App\Repository\CityRepository;
 use App\Repository\CountryRepository;
+use App\Services\CustomEncoders;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,46 +20,36 @@ use Symfony\Component\Serializer\Serializer;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/country/all", name="country_all", methods={"GET"})
+     * @Route(path="/country/all", name="country_all", methods={"GET"})
      */
-    public function getCountryAllAction(CountryRepository $repository)
+    public function getCountryAllAction(CountryRepository $repository, CustomEncoders $encoders)
     {
         $countries = $repository->findAll();
-        dd($countries);
         if(!$countries)
             return $this->json(['error' => 'There are no countries in the database'],Response::HTTP_NO_CONTENT);
-        return $this->json($countries,Response::HTTP_OK);
+        foreach ($countries as $country) {
+            $results[] = $encoders->encodeCountry($country);
+        }
+        return new JsonResponse($results,Response::HTTP_OK);
     }
 
     /**
-     * @Route("/country/{name}", name="country_name", methods={"GET"})
+     * @Route(path="/country/{name}", name="country_name", methods={"GET"})
      */
-    public function getCountryByNameAction(string $name, CountryRepository $repository)
+    public function getCountryByNameAction(string $name, CountryRepository $repository, CustomEncoders $encoders)
     {
         $country = $repository->findOneBy(['name' => $name]);
-        dd($country);
-//        $country = new Country();
-//        $city = new City();
-//        $country->setName('Luka')
-//            ->setPopulation(123123)
-//            ->setSize(123124)
-//            ->setCurrency('RSD');
-//
-//        $city->setName('Luka City')
-//            ->setPopulation(123123)
-//            ->setCountry($country)
-//            ->setZipCode(24000);
-//        $em = $this->getDoctrine()->getManager();
-//        $em->persist($country);
-//        $em->persist($city);
-//        $em->flush();
+
         if(!$country)
             return $this->json([],Response::HTTP_NO_CONTENT);
-        return $this->json($country,Response::HTTP_OK);
+
+        $result = $encoders->encodeCountry($country);
+
+        return new JsonResponse($result,Response::HTTP_OK);
     }
 
     /**
-     * @Route("/country/add", name="country_add", methods={"POST"})
+     * @Route(path="/country/add", name="country_add", methods={"POST"})
      */
     public function addCountryAction(Request $request, EntityManagerInterface $em, CountryRepository $repository)
     {
@@ -77,22 +69,67 @@ class HomeController extends AbstractController
         $em->persist($country);
         $em->flush();
 
-        return $this->json([],Response::HTTP_CREATED);
+        return $this->json($country,Response::HTTP_CREATED);
     }
 
     /**
      * @Route(path="/city/all", name="city_all", methods={"GET"})
      */
-    public function getAllCities(CityRepository $repository)
+    public function getAllCities(CityRepository $repository, CustomEncoders $encoders)
     {
         $cities = $repository->findAll();
-        dd($cities);
-        $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-
-        $serializer = new Serializer($normalizers, $encoders);
-        $cities = $serializer->serialize($cities,'json',['ignored_attributes' => ['country']]);
-
-        return $this->json($cities,Response::HTTP_OK);
+        foreach ($cities as $city) {
+            $results[] = $encoders->encodeCity($city);
+        }
+        return new JsonResponse($results,Response::HTTP_OK);
     }
+
+    /**
+     * @Route(path="/city/{name}", name="city_name", methods={"GET"})
+     */
+    public function getCityByNameAction(string $name, CityRepository $repository, CustomEncoders $encoders)
+    {
+        $city = $repository->findOneBy(['name' => $name]);
+        if(!$city)
+            return $this->json([],Response::HTTP_NO_CONTENT);
+
+        $result = $encoders->encodeCity($city);
+
+        return new JsonResponse($result,Response::HTTP_OK);
+    }
+
+    /**
+     * @Route(path="/city/add", name="city_add", methods={"POST"})
+     */
+    public function addCityAction(EntityManagerInterface $em, CountryRepository $countryRepository, CityRepository $cityRepository, Request $request)
+    {
+        $data = json_decode($request->getContent(),true);
+        $city = new City();
+        $availableKeys = ['name','zipCode','country','population'];
+
+        foreach ($availableKeys as $availableKey) {
+            if(!in_array($availableKey,array_keys($data)))
+                return $this->json(["error" => 'Bad Request'],Response::HTTP_BAD_REQUEST);
+        }
+        if($cityRepository->findOneBy(['name' => $data['name']]))
+            return $this->json(["error" => 'City already in database'],Response::HTTP_BAD_REQUEST);
+
+        if(!$country = $countryRepository->findOneBy(['name' => $data['country']]))
+            return $this->json(["error" => 'Country does not exist'],Response::HTTP_BAD_REQUEST);
+
+        foreach ($data as $key => $value) {
+            if($key == 'country') {
+                $city->setCountry($country);
+                continue;
+            }
+            $city->{'set'.ucfirst($key)}($value);
+        }
+
+        $em->persist($city);
+        $em->flush();
+
+        return $this->json($city,Response::HTTP_CREATED);
+
+    }
+
 }

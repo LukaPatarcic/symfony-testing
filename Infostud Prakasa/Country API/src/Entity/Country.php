@@ -39,7 +39,7 @@ class Country
     private $currency;
 
     /**
-     * @ORM\OneToMany(targetEntity="City", mappedBy="country")
+     * @ORM\OneToMany(targetEntity="City", mappedBy="country", fetch="EAGER")
      * @ORM\JoinColumn(name="cities_id", referencedColumnName="id")
      */
     private $cities;

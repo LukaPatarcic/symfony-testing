@@ -32,7 +32,7 @@ class City
     private $zipCode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities", fetch="EAGER")
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     private $country;
