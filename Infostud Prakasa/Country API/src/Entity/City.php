@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CityRepository")
@@ -13,27 +14,31 @@ class City
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("city")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("city")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("city")
      */
     private $population;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("city")
      */
     private $zipCode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities", fetch="EAGER")
-     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="cities")
+     * @Groups("city")
      */
     private $country;
 

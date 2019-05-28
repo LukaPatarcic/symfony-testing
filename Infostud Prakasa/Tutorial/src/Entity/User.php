@@ -33,6 +33,30 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true, unique=true)
+     */
+    private $apiKey;
+
+    /**
+     * @return string|null
+     */
+    public function getApiKey(): ?string
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * @param string|null $apiKey
+     * @return User
+     */
+    public function setApiKey(?string $apiKey): User
+    {
+        $this->apiKey = $apiKey;
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

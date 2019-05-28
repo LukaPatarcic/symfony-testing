@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\City;
 use App\Entity\Country;
+use App\Form\CountryType;
 use App\Repository\CityRepository;
 use App\Repository\CountryRepository;
 use App\Services\CustomEncoders;
@@ -27,9 +28,9 @@ class HomeController extends AbstractController
         $countries = $repository->findAll();
         if(!$countries)
             return $this->json(['error' => 'There are no countries in the database'],Response::HTTP_NO_CONTENT);
-        foreach ($countries as $country) {
+        foreach ($countries as $country)
             $results[] = $encoders->encodeCountry($country);
-        }
+
         return new JsonResponse($results,Response::HTTP_OK);
     }
 
@@ -42,7 +43,6 @@ class HomeController extends AbstractController
 
         if(!$country)
             return $this->json([],Response::HTTP_NO_CONTENT);
-
         $result = $encoders->encodeCountry($country);
 
         return new JsonResponse($result,Response::HTTP_OK);
@@ -55,6 +55,11 @@ class HomeController extends AbstractController
     {
         $data = json_decode($request->getContent(),true);
         $country = new Country();
+        $form = $this->createForm(CountryType::class, $country);
+        $form->submit($data);
+        $form->handleRequest($request);
+        $errors = $form->getErrors();
+        dd($errors);
         $availableKeys = ['name','size','currency','population'];
 
         foreach ($availableKeys as $availableKey) {
@@ -81,6 +86,7 @@ class HomeController extends AbstractController
         foreach ($cities as $city) {
             $results[] = $encoders->encodeCity($city);
         }
+
         return new JsonResponse($results,Response::HTTP_OK);
     }
 

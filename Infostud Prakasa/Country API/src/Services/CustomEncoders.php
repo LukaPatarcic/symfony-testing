@@ -18,6 +18,7 @@ class CustomEncoders
     public function encodeCountry(Country $country)
     {
         $cities = $country->getCities()->toArray();
+
         foreach ($cities as $city) {
             $cityData[] = [
                 'id' => $city->getId(),
@@ -32,7 +33,7 @@ class CustomEncoders
             'size' => $country->getSize(),
             'population' => $country->getPopulation(),
             'currency' => $country->getCurrency(),
-            'cities' => $cityData,
+            'cities' => $cityData ?? [],
         ];
         return $data;
 

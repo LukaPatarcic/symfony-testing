@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
@@ -20,6 +21,7 @@ class Country
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="The name should not be blank")
      */
     private $name;
 
@@ -39,8 +41,7 @@ class Country
     private $currency;
 
     /**
-     * @ORM\OneToMany(targetEntity="City", mappedBy="country", fetch="EAGER")
-     * @ORM\JoinColumn(name="cities_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="City", mappedBy="country")
      */
     private $cities;
 
