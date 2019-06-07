@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\EntityListeners({"App\EventListeners\UserListener"})
+ * @UniqueEntity(fields={"email"},message="You are already registered")
  */
 class User implements UserInterface
 {
@@ -19,6 +23,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="Please enter an email")
      */
     private $email;
 
@@ -38,6 +43,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", nullable=true, unique=true)
      */
     private $apiKey;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $keyExpirationTime;
 
     /**
      * @return string|null
@@ -133,5 +143,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getKeyExpirationTime(): ?\DateTimeInterface
+    {
+        return $this->keyExpirationTime;
+    }
+
+    public function setKeyExpirationTime(\DateTimeInterface $keyExpirationTime): self
+    {
+        $this->keyExpirationTime = $keyExpirationTime;
+
+        return $this;
     }
 }

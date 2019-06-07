@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Profile;
 use App\Entity\User;
+use App\Form\ProfileType;
 use App\Repository\ProfileRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,21 +31,19 @@ class ProfileController extends AbstractController
      */
     public function newAction(Request $request,EntityManagerInterface $em)
     {
-        $data = json_decode($request->getContent(), 1);
-        // To avoid crashes since name is required
-        if (empty($data['name'])) {
-            return $this->json(['error' => 'Name is a required field']);
-        }
+        $data = json_decode($request->getContent(),true);
         $profile = new Profile();
-        $profile
-            ->setName($data['name'] ?? null)
-            ->setPib($data['pib'] ?? null)
-            ->setMaticniBroj($data['maticniBroj'] ?? null)
-            ->setAddress($data['address'] ?? null)
-            ->setEmail($data['email'] ?? null)
-            ->setPhoneNumber($data['phoneNumber'] ?? null)
-            ->setDescription($data['description'] ?? null);
+        $form = $this->createForm(ProfileType::class, $profile);
+        $form->submit($data);
 
+        if(!$form->isValid()) {
+            $errors = [];
+            foreach ($form->getErrors(true,true) as $error) {
+                $errors[$error->getOrigin()->getName()] = $error->getMessage();
+                dump($error);
+            }
+            return $this->json(['errors' => $errors], Response::HTTP_BAD_REQUEST);
+        }
         $em->persist($profile);
         $em->flush();
 
@@ -96,7 +95,7 @@ class ProfileController extends AbstractController
             $params['pageSize'] ?? 10
         );
 
-        return $this->json($results,Response::HTTP_OK);
+        return $this->json($results,Response::HTTP_OK,[],['groups' => 'get-profile']);
     }
 
     /**
@@ -142,5 +141,22 @@ class ProfileController extends AbstractController
         $em->flush();
         return $this->json(['success' => 'Delete profile with name '.$profile->getName()],Response::HTTP_OK);
 
+    }
+
+    /**
+     * @Route(path="/profiles/get-for-user/{id}")
+     */
+    public function getProfileForUserAction(int  $id,ProfileRepository $repository)
+    {
+        $profile = $repository->findOneBy(['user' => $id]);
+        if(!$profile) {
+            return $this->jsonResponse([],Response::HTTP_NOT_FOUND);
+        }
+        return $this->jsonResponse($profile,Response::HTTP_OK);
+    }
+
+    public function jsonResponse($data = [], $code = Response::HTTP_OK)
+    {
+        return $this->json($data,$code,[],['groups' => 'get-profile']);
     }
 }

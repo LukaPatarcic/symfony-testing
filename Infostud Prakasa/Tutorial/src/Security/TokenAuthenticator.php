@@ -58,10 +58,12 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        // check credentials - e.g. make sure the password is valid
-        // no credential check is needed in this case
-
-        // return true to cause authentication success
+        /**
+         * @var User $user
+         */
+        if($user->getKeyExpirationTime() < new \DateTime()) {
+            return false;
+        }
         return true;
     }
 
