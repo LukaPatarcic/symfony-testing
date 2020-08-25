@@ -1,19 +1,26 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {fetchposts} from "../store/actions/postAction";
+import {fetchposts,incrementCounter} from "../store/actions/postAction";
 
 export default function Home() {
 
     const dispatch = useDispatch();
-    const {posts,loading} = useSelector(state => state.posts);
-    console.log(loading);
+    const {posts,loading,counter} = useSelector(state => state.posts);
 
     useEffect(() => {
         dispatch(fetchposts());
     },[]);
 
     return (
-        <div>{posts.map((post,index) => <p key={index}>{post}</p>)}</div>
+        <div>
+            <button onClick={() => dispatch(incrementCounter())}>Increment</button>
+            <p>{counter}</p>
+            {loading ?
+                'Loading...'
+                :
+                posts.map((post,index) => <p key={index}>{post.title}</p>)
+            }
+        </div>
     )
 
 }

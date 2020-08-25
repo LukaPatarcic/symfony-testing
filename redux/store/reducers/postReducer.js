@@ -3,7 +3,8 @@ import * as types from '../types'
 const initialState = {
     posts: [],
     post: {},
-    loading: false,
+    counter: 0,
+    loading: true,
     error: null
 }
 
@@ -16,15 +17,10 @@ export const  postReducer = (state = initialState, action) => {
                 loading: false,
                 error: null
             }
-        case types.SET_POSTS_LOADING_TRUE:
+        case types.INCREMENT_COUNTER:
             return {
                 ...state,
-                loading: true
-            }
-        case types.SET_POSTS_LOADING_FALSE:
-            return {
-                ...state,
-                loading: false
+                counter: state.counter + 1
             }
         default: return state;
 
