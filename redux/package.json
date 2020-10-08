@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001117",
-    "next": "9.5.2",
+    "next": "9.5.4",
     "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
